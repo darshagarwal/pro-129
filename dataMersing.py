@@ -28,11 +28,16 @@ star_df = pd.read_csv("D:\coding\pro-129\bright_stars.csv")
 headers_star = star_df[0]
 brightest_star = star_df[1:]
 
-data_mersing_headers=[headers_star+headers]
+data_merging_headers=[headers_star+headers]
 
-data_mersing = [brightest_star+dwaf_stars_data]
+data_merging =[]
 
-with open("Final_Data_Mersing.csv","w") as f:
+for i in brightest_star:
+    data_merging.append(i)
+for j in dwaf_stars_data:
+    data_merging.append(j)
+
+with open("Final_Data_Merging.csv","w",encoding='utf8') as f:
     csv_write = csv.writer(f)
-    csv_write.writerow(data_mersing_headers)
-    csv_write.writerows(data_mersing)
+    csv_write.writerow(data_merging_headers)
+    csv_write.writerows(data_merging)
